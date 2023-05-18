@@ -1,0 +1,245 @@
+{
+	"info": {
+		"_postman_id": "3c47e6cb-62d1-48bd-b07e-a19cbbade3d6",
+		"name": "Admin Endpoints",
+		"description": "Administrative Endpoints for better control over the database and checking the status of the server\n\n**Requires administrator privilages to execute them**",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "HealthCheck",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json; charset=utf-8"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/interoperability/api/admin/healthcheck",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"interoperability",
+						"api",
+						"admin",
+						"healthcheck"
+					]
+				},
+				"description": "Get request that checks if server is alive and the status of the database (the IP that the database is hosted, database administrator username and password and the database name)\n\nBelow an **example** of a working server and database"
+			},
+			"response": [
+				{
+					"name": "HealthCheck",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/interoperability/api/admin/healthcheck",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"interoperability",
+								"api",
+								"admin",
+								"healthcheck"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"status\": \"OK\",\n  \"dbconnection\": \"localhost\",\n  \"user\": \"root\",\n  \"database name\": \"tl21\"\n}"
+				}
+			]
+		},
+		{
+			"name": "ResetPasses",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json; charset=utf-8"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/interoperability/api/admin/resetpasses",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"interoperability",
+						"api",
+						"admin",
+						"resetpasses"
+					]
+				},
+				"description": "Post request that deletes the current passes in the database an replaces them with new ones *based on an excel file.* After successfully doing this, it reutrns a json with status **OK**\n\nBelow is given an example of the output after the request has been completed succesfully"
+			},
+			"response": [
+				{
+					"name": "ResetPasses",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/interoperability/api/admin/resetpasses",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"interoperability",
+								"api",
+								"admin",
+								"resetpasses"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"Status\": \"OK\"\n}"
+				}
+			]
+		},
+		{
+			"name": "ResetStations",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json; charset=utf-8"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/interoperability/api/admin/resetstations",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"interoperability",
+						"api",
+						"admin",
+						"resetstations"
+					]
+				},
+				"description": "Post request that deletes the current Stations in the database an replaces them with new ones *based on an excel file.*After successfully doing this, the console logs: **Re-Initialization Complete**\n\nBelow is given an example of the output after the request has been completed succesfully"
+			},
+			"response": [
+				{
+					"name": "ResetStations",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/interoperability/api/admin/resetstations",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"interoperability",
+								"api",
+								"admin",
+								"resetstations"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"status\": \"Re-initialization complete\"\n}"
+				}
+			]
+		},
+		{
+			"name": "ResetVehicles",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json; charset=utf-8"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/interoperability/api/admin/resetvehicles",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"interoperability",
+						"api",
+						"admin",
+						"resetvehicles"
+					]
+				},
+				"description": "Post request that deletes the current VehicleIDs in the database an replaces them with new ones *based on an excel file.*After successfully doing this, it reutrns a json with status **OK**\n\nBelow is given an example of the output after the request has been completed succesfully"
+			},
+			"response": [
+				{
+					"name": "ResetVehicles",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/interoperability/api/admin/resetvehicles",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"interoperability",
+								"api",
+								"admin",
+								"resetvehicles"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"status\": \"Re-initialization complete\"\n}"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://localhost:9103",
+			"type": "string"
+		}
+	]
+}

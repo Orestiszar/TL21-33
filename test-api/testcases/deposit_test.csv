@@ -1,0 +1,11 @@
+op1,op2,amount,payment_validation,ans
+EG,AO,1,rec12,Successful
+EG,AO,10000,rec12,Failed
+EG,NE,1,rec12,Successful
+EG,NE,10000,rec12,Failed
+EG,OO,1,rec12,Successful
+EG,OO,10000,rec12,Failed
+EG,GF,1,rec12,Failed
+EG,AO,1,rec12hthg,Invalid payment credentials
+EG,NE,1,rec12hdhh,Invalid payment credentials
+OO,EG,1,rec12,NOT_AUTHORIZED

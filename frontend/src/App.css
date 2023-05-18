@@ -1,0 +1,253 @@
+.App {
+display: flex;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+
+
+
+.cover, #content, .overlay {
+  width:100%;
+  height:100%;
+  margin:0;
+  padding:0;
+}
+
+.cover {
+  background: url("http://lorempixel.com/output/abstract-q-g-1152-839-1.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  box-shadow: inset 0px -120px 100px -10px rgba(0, 0, 0, 0.7);
+  position: relative;
+  color: rgb(255, 255, 255);
+}
+.filler {
+  position:absolute;
+  bottom:20px;
+  left:0;
+  width:100%;
+  text-align: center;
+  margin: 0;
+  z-index:2;
+}
+.overlay {
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index:1;
+}
+
+
+
+/* .App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+} */
+/* .nav {
+  list-style-type: none;
+  width: 1000px;
+  display: flex;
+  justify-content: space-evenly !important; 
+} */
+
+/* Navbar container */
+.nav {
+  overflow: hidden;
+  background-color: #333;
+  font-family: Arial;
+  list-style-type: none;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly !important; 
+}
+
+/* Links inside the navbar */
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* The dropdown container */
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */ 
+}
+
+
+/* Add a red background color to navbar links on hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+  border-radius: 10px;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+.arial { font-family: Arial; }
+
+/* Footer */
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(223, 115, 115, 0.932);
+  text-align: center;
+  color: #111;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 18px; font-weight: bold;
+}
+
+/* center elements */
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  text-align: center;
+  width: 20%;
+  padding:30px;
+  background-color: rgb(224, 223, 149);
+  border-radius:15px;
+}
+
+.center2 {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2%;
+  text-align: center;
+  width: 20%;
+  margin-bottom: -100px;
+  padding:30px;
+}
+
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  /*-webkit-transition-duration: 0.4s; !* Safari *!*/
+  transition-duration: 0.4s;
+  border-radius: 8px;
+}
+
+
+.button2:hover {
+ box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 #4CAF50;
+}
+
+.buttoncans:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 #d32222;
+  background-color:#d32222;
+ }
+
+ /* for inputs */
+
+ .rounded-input {
+  width:300px;
+  margin:10px 0;
+  border:0;
+  box-shadow: 0 0 15px 4px rgba(0,0,0,0.06);
+  padding:10px;
+  border-radius:10px;
+}   
+
+
+/* table */
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 20px;
+  margin-bottom:20%
+}
+
+th, td {
+  text-align: center;
+  padding: 10px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+.container {
+  display: flex;
+}
+
+.item {
+  flex-basis: 1000px;
+  height: 100px;
+  margin: auto;
+  width:500px;
+  padding:10px
+}

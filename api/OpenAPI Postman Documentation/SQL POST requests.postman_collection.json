@@ -1,0 +1,204 @@
+{
+	"info": {
+		"_postman_id": "65aa31fb-6c36-429e-950a-4a38caa44bbd",
+		"name": "SQL POST requests",
+		"description": "The API POST requests. Those requests can return a **json** or a **csv**.\n\nThe variables of the request are parsed through the url. Those variables will be explained at each request *below*\n\nThose request can be given a query parameter that specifies if **a json string or a csv file must be returned** (*in our examples we are using json format in order for the results to be more visible*)\n\n## HTTPS response codes\n\n*   200: Successful request\n*   400: Bad request (variable parameters are invalid)\n*   401: Not authorized (request send by unauthorized user)\n*   402: No data (empty response)\n*   500: Internal Error (every other type of error)\n    \n\nBelow each of the requests is explained",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Deposit",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json; charset=utf-8"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/interoperability/api/Deposit/:op1_ID/:op2_ID/:amount/:payment_validation?format=json",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"interoperability",
+						"api",
+						"Deposit",
+						":op1_ID",
+						":op2_ID",
+						":amount",
+						":payment_validation"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json",
+							"description": "Return json or csv (default json)"
+						}
+					],
+					"variable": [
+						{
+							"key": "op1_ID",
+							"value": "EG",
+							"description": "(Required) Payer operator"
+						},
+						{
+							"key": "op2_ID",
+							"value": "AO",
+							"description": "(Required) Reciever operator"
+						},
+						{
+							"key": "amount",
+							"value": "1",
+							"description": "(Required) Amount of payment"
+						},
+						{
+							"key": "payment_validation",
+							"value": "rec12",
+							"description": "(Required) reciept validation"
+						}
+					]
+				},
+				"description": "This POST request implements the payment of an operator(parameter **op2_ID**) to another (parameter **op1_ID**) a certain amount of money (parameter **amount**), given a valid receipt (parameter **payment_validation**).\n\n*Notice: In our API we have implemented that the valid receipts are those tha contain less than 6 characters in their strings*"
+			},
+			"response": [
+				{
+					"name": "Deposit",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/interoperability/api/Deposit/:op1_ID/:op2_ID/:amount/:payment_validation?format=json",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"interoperability",
+								"api",
+								"Deposit",
+								":op1_ID",
+								":op2_ID",
+								":amount",
+								":payment_validation"
+							],
+							"query": [
+								{
+									"key": "format",
+									"value": "json"
+								}
+							],
+							"variable": [
+								{
+									"key": "op1_ID",
+									"value": "EG",
+									"description": "(Required) Payer operator"
+								},
+								{
+									"key": "op2_ID",
+									"value": "AO",
+									"description": "(Required) Reciever operator"
+								},
+								{
+									"key": "amount",
+									"value": "1",
+									"description": "(Required) Amount of payment"
+								},
+								{
+									"key": "payment_validation",
+									"value": "rec12",
+									"description": "(Required) reciept validation"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"Payer\": \"EG\",\n  \"Receiver\": \"AO\",\n  \"Amount\": 548.7,\n  \"DateOfPayment\": \"2022-02-23 10:18:26\",\n  \"PaymentStatus\": \"Successful\"\n}"
+				}
+			]
+		},
+		{
+			"name": "NewTransaction",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json; charset=utf-8"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/interoperability/api/NewTransaction?format=json",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"interoperability",
+						"api",
+						"NewTransaction"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				},
+				"description": "Implements a new transaction based on random selection of vehicle and station"
+			},
+			"response": [
+				{
+					"name": "NewTransaction",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/interoperability/api/NewTransaction?format=json",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"interoperability",
+								"api",
+								"NewTransaction"
+							],
+							"query": [
+								{
+									"key": "format",
+									"value": "json"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"Timestamp of new Transaction\": \"2022-02-23 10:47:47\",\n  \"rate\": 2.2,\n  \"tagID\": \"ZSM023772\",\n  \"vehicleID\": \"QR03XCJ37459\",\n  \"tollID\": \"MR05\",\n  \"New Transaction Status\": \"Successful\"\n}"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://localhost:9103",
+			"type": "string"
+		}
+	]
+}

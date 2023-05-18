@@ -1,0 +1,161 @@
+{
+	"info": {
+		"_postman_id": "badb825c-5066-43b4-b266-44ed48c1331b",
+		"name": "Login And Logout",
+		"description": "Basic login and logout requests that create a cookie based on an entry in the database. These requests are implemented in order to restrict access to the requests that must be used only by the administrators *(e.g. HealthCheck)* and the specified authorization level that corresponds to the current logged user",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json; charset=utf-8"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "admin",
+							"description": "(Required) "
+						},
+						{
+							"key": "password",
+							"value": "admin",
+							"description": "(Required) "
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseUrl}}/interoperability/api/login",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"interoperability",
+						"api",
+						"login"
+					]
+				},
+				"description": "Login the user based on the *admins* table in the database.\n\nThe login credentials are parsed through the body. The credentials are then checked in the database and if they exist, a token and a cookie are created with the users given authorization.\n\n**A logged user may not use all the requests, it is entirely based on his authorization level**\n\nLogged users reamin logged in for 4320000 ms\n\nAn admin login example is given below:"
+			},
+			"response": [
+				{
+					"name": "Login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "admin",
+									"description": "(Required) "
+								},
+								{
+									"key": "password",
+									"value": "admin",
+									"description": "(Required) "
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/interoperability/api/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"interoperability",
+								"api",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"token\": \"adminadmin2\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json; charset=utf-8"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/interoperability/api/logout",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"interoperability",
+						"api",
+						"logout"
+					]
+				},
+				"description": "Logout a current user\n\nUsing this POST method as a logged user, deletes the current cookie, printing: **LOGOUT**\n\nUsing without being logged in, it does nothing\n\nAn example logout of an already logged in user is given below:"
+			},
+			"response": [
+				{
+					"name": "Logout",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/interoperability/api/logout",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"interoperability",
+								"api",
+								"logout"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"status\": \"LOGOUT\"\n}"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://localhost:9103",
+			"type": "string"
+		}
+	]
+}

@@ -1,0 +1,101 @@
+{
+	"info": {
+		"_postman_id": "cb51737c-809b-4a59-8a47-f5960e996d22",
+		"name": "Server basic request",
+		"description": "The basic request of out API. It is mainly used in order to initialize the database, declare the request and keeping an order beetwen them",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "index",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "text/html; charset=utf-8"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/interoperability/api/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"interoperability",
+						"api",
+						""
+					]
+				},
+				"description": "Caaling the index in the api, runs a test that everything worked fine, returning a string. Example of succesfull test is given below"
+			},
+			"response": [
+				{
+					"name": "index",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/html; charset=utf-8"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/interoperability/api/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"interoperability",
+								"api",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "19"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"13-vdyzjZqgg63x/Ng0Z6E7XPwT/LA\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 23 Feb 2022 22:21:34 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "Test just worked!! "
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://localhost:9103",
+			"type": "string"
+		}
+	]
+}

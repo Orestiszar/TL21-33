@@ -1,0 +1,26 @@
+{
+	"name": "TL21-33",
+	"description": "Command line interface for tl21-33 project",
+	"version": "0.0.1",
+	"license": "UNLICENSED",
+	"bin": {
+		"TL21-33": "index.js",
+		"se2133": "index.js"
+	},
+	"author": {
+		"name": "TL21-33-Team",
+		"email": "el18207@mail.ntua.gr",
+		"url": "localhost:9103"
+	},
+	"keywords": [
+		"TL21-33",
+		"TL21-33-Team"
+	],
+	"files": [
+		"index.js",
+		"utils"
+	],
+	"scripts": {
+		"format": "prettier --write \"./**/*.{js,json}\""
+	}
+}
